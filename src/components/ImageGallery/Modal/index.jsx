@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import './assets/index.css';
 
 export const Modal = ({ src, alt, onClose }) => {
-  const handleEsc = ({ code }) => {
+  const handleEsc = useCallback(({ code }) => {
     if (code === 'Escape') onClose();
-  };
+  }, [onClose]);
 
   const handleClick = (event) => {
     if (event.target === event.currentTarget) onClose();
@@ -16,7 +16,7 @@ export const Modal = ({ src, alt, onClose }) => {
     return () => {
       document.removeEventListener('keydown', handleEsc);
     };
-  }, []);
+  }, [handleEsc]);
 
   return (
     <div className="overlay" onClick={handleClick}>
