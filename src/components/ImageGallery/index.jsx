@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ImageGalleryItem } from './ImageGalleryItem';
-import Modal from './Modal';
+import { Modal } from './Modal';
 import './assets/index.css';
 
 export const ImageGallery = ({ images }) => {
